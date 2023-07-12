@@ -24,9 +24,9 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 BLOG APP <a name="about-project"></a>
+# 📖 BLOG-HAVEN <a name="about-project"></a>
 
-- The Blog App is a web application designed to allow users to create and manage their own blogs. It provides a platform for individuals or organizations to publish articles, share their thoughts, and engage with a community of readers. The app offers a user-friendly interface and a range of features to enhance the blogging experience.👌
+- The Blog-haven is a web application designed to allow users to create and manage their own blogs. It provides a platform for individuals or organizations to publish articles, share their thoughts, and engage with a community of readers. The app offers a user-friendly interface and a range of features to enhance the blogging experience.👌
 
 
 ## 🛠️ Built With <a name="built-with"></a>

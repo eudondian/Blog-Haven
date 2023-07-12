@@ -89,7 +89,7 @@ Clone this repository to your desired folder:
 
 ```sh
  - cd Blog-app
- - git clone git@github.com/eudondian/Blog-app.git
+ - git clone git@https://github.com/eudondian/Blog-Haven.git
  - Update your git identity by running "git config --global user.email "your email.com""
  - Update your name on git by running "git config --global user.name "your name""
 
@@ -177,7 +177,7 @@ npm run deploy
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/eudondian/Blog-app/issues).
+Feel free to check the [issues page](https://github.com/eudondian/Blog-Haven/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

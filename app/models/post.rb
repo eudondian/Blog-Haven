@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
   has_many :likes, foreign_key: 'post_id'
   has_many :comments, foreign_key: 'post_id'
-  after_save :increment_posts_counter
+  after_save :posts_counter
 
   def posts_counter
     author.increment!(:posts_counter)

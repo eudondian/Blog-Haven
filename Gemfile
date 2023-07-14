@@ -73,4 +73,10 @@ group :test do
   gem 'webdrivers'
 end
 
-gem 'rspec-rails'
+
+group :test do
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+end
+
+gem 'lorem_ipsum'

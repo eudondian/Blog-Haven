@@ -4,7 +4,6 @@ RSpec.describe Post, type: :model do
   describe 'validations' do
     it { is_expected.to validate_presence_of(:title) }
 
-
     it 'should validate the comments_counter is greater than or equal to 0' do
       post = Post.new(title: 'title', comments_counter: -1, likes_counter: 1)
       expect(post).not_to be_valid

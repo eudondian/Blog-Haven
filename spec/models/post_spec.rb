@@ -18,7 +18,14 @@ RSpec.describe Post, type: :model do
     end
 
     it 'title should not exceed 250 characters' do
-      mock_title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec maximus tellus nec orci iaculis rhoncus. Sed eleifend lectus et ultrices scelerisque. Morbi non lacus quis massa hendrerit luctus eu in dolor. Sed ut nisi vel diam suscipit tempus. Sed at lectus a sem efficitur interdum. Vestibulum ac semper justo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras pharetra est ut purus malesuada, ac iaculis arcu aliquam. Nulla varius turpis vel metus commodo, ac iaculis dolor accumsan. Integer venenatis mauris sed nunc euismod iaculis. Vivamus tincidunt lectus eu aliquet rutrum. Phasellus malesuada purus vitae augue fermentum congue. Fusce condimentum dui nec tortor aliquam consectetur.'
+      mock_title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec maximus tellus nec orci iaculis rhoncus. ' \
+                   'Sed eleifend lectus et ultrices scelerisque. Morbi non lacus quis massa hendrerit luctus eu in dolor. ' \
+                   'Sed ut nisi vel diam suscipit tempus. Sed at lectus a sem efficitur interdum. Vestibulum ac semper justo. ' \
+                   'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. ' \
+                   'Cras pharetra est ut purus malesuada, ac iaculis arcu aliquam. Nulla varius turpis vel metus commodo, ' \
+                   'ac iaculis dolor accumsan. Integer venenatis mauris sed nunc euismod iaculis. ' \
+                   'Vivamus tincidunt lectus eu aliquet rutrum. Phasellus malesuada purus vitae augue fermentum congue. ' \
+                   'Fusce condimentum dui nec tortor aliquam '
       post = Post.new(title: mock_title, comments_counter: 1, likes_counter: 1)
       expect(post).not_to be_valid
       expect(post.errors[:title]).to include('cannot exceed 250 characters')

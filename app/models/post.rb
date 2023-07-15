@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
   has_many :likes, foreign_key: 'post_id'
   has_many :comments, foreign_key: 'post_id'
-  after_save :increment_posts_counter
+  # after_save :increment_posts_counter
 
   def most_recent_comments
     comments.order(created_at: :desc).limit(5)
@@ -35,9 +35,7 @@ class Post < ApplicationRecord
     errors.add(:likes_counter, 'must be greater than or equal 0')
   end
 
-  private
-
-  def increment_posts_counter
-    author.increment!(:posts_counter)
+def increment_posts_counter
+  author.increment!(:posts_counter)
   end
 end

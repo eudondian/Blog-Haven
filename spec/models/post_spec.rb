@@ -68,4 +68,17 @@ RSpec.describe Post, type: :model do
       expect(post.most_recent_comments).to_not include(old_comment)
     end
   end
+
+  
+
+  describe 'increment_posts_counter' do
+    let!(:user) { user.create(:user) }
+    let!(:post) { post.create(:post, author: user) }
+
+    it 'increments the increment_posts_counter' do
+      expect do
+        post.increment_posts_counter
+      end.to change { user.reload.posts_counter }.by(1)
+    end
+  end
 end

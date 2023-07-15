@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
     it { is_expected.to validate_presence_of(:name) }
 
     it 'should validate that postsCounter is greater than or equal to 0' do
-      user = User.new(name: 'Esther perter', posts_counter: -1)
+      user = User.new(name: 'Esther per', posts_counter: -1)
       expect(user).not_to be_valid
       expect(user.errors[:postsCounter]).to include('must be greater than or equal 0')
     end

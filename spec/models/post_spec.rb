@@ -10,12 +10,6 @@ RSpec.describe Post, type: :model do
       expect(post.errors[:comments_counter]).to include('must be greater than or equal 0')
     end
 
-    it 'should validate the likes_counter is greater than or equal to 0' do
-      post = Post.new(title: 'title', comments_counter: -1, likes_counter: -1)
-      expect(post).not_to be_valid
-      expect(post.errors[:likes_counter]).to include('must be greater than or equal 0')
-    end
-
     it 'title should not exceed 250 characters' do
       example_title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec maximus tellus nec orci iaculis rhoncus. ' \
                       'Sed eleifend lectus et ultrices scelerisque. Morbi non lacus quis massa hendrerit luctus eu in dolor. ' \

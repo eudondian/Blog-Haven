@@ -68,7 +68,7 @@ RSpec.describe Post, type: :model do
       expect(post.most_recent_comments).to_not include(old_comment)
     end
   end
-  
+
   describe '#increment_posts_counter' do
     let(:user) { User.create(name: 'John Doe', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico', posts_counter: 0) }
     let(:post) { Post.new(title: 'Example Title', comments_counter: 0, likes_counter: 0, author: user) }
@@ -76,5 +76,4 @@ RSpec.describe Post, type: :model do
       expect { post.send(:increment_posts_counter) }.to change { user.reload.posts_counter }.by(1)
     end
   end
-  
 end

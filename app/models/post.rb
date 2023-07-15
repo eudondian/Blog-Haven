@@ -13,6 +13,10 @@ class Post < ApplicationRecord
     comments.order(created_at: :desc).limit(5)
   end
 
+  def update_comments_counter
+    update(comments_counter: comments.count)
+  end
+
   def title_not_exceed_250_chars
     return unless title.present? && title.length > 250
 

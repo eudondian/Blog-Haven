@@ -17,15 +17,15 @@ RSpec.describe Post, type: :model do
     end
 
     it 'title should not exceed 250 characters' do
-      mock_title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec maximus tellus nec orci iaculis rhoncus. ' \
-                   'Sed eleifend lectus et ultrices scelerisque. Morbi non lacus quis massa hendrerit luctus eu in dolor. ' \
-                   'Sed ut nisi vel diam suscipit tempus. Sed at lectus a sem efficitur interdum. Vestibulum ac semper justo. ' \
-                   'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. ' \
-                   'Cras pharetra est ut purus malesuada, ac iaculis arcu aliquam. Nulla varius turpis vel metus commodo, ' \
-                   'ac iaculis dolor accumsan. Integer venenatis mauris sed nunc euismod iaculis. ' \
-                   'Vivamus tincidunt lectus eu aliquet rutrum. Phasellus malesuada purus vitae augue fermentum congue. ' \
-                   'Fusce condimentum dui nec tortor aliquam '
-      post = Post.new(title: mock_title, comments_counter: 1, likes_counter: 1)
+      example_title = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec maximus tellus nec orci iaculis rhoncus. ' \
+                      'Sed eleifend lectus et ultrices scelerisque. Morbi non lacus quis massa hendrerit luctus eu in dolor. ' \
+                      'Sed ut nisi vel diam suscipit tempus. Sed at lectus a sem efficitur interdum. Vestibulum ac semper justo. ' \
+                      'Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. ' \
+                      'Cras pharetra est ut purus malesuada, ac iaculis arcu aliquam. Nulla varius turpis vel metus commodo, ' \
+                      'ac iaculis dolor accumsan. Integer venenatis mauris sed nunc euismod iaculis. ' \
+                      'Vivamus tincidunt lectus eu aliquet rutrum. Phasellus malesuada purus vitae augue fermentum congue. ' \
+                      'Fusce condimentum dui nec tortor aliquam '
+      post = Post.new(title: example_title, comments_counter: 1, likes_counter: 1)
       expect(post).not_to be_valid
       expect(post.errors[:title]).to include('cannot exceed 250 characters')
     end
@@ -37,24 +37,40 @@ RSpec.describe Post, type: :model do
     it { should have_many(:likes).with_foreign_key('post_id') }
   end
 
-  def most_recent_comments
+  describe 'update_comments_counter' do
+    let(:user) { create(user) }
+
+    it 'should update the comments_counter with the correct count' do
+      user = User.create(name: 'name')
+      post = Post.create(title: 'title', text: 'text', author_id: user.id)
+      Comment.create(author_id: user.id, post_id: post.id, text: 'text')
+      Comment.create(author_id: user.id, post_id: post.id, text: 'text')
+      Comment.create(author_id: user.id, post_id: post.id, text: 'text')
+
+      post.update_comments_counter
+
+      expect(post.comments_counter).to eq(3)
+    end
+  end
+
+  def update_recent_comments_counter
     let(:user) { create(user) }
 
     it 'should return the three most recent posts and no more' do
       user = User.create(name: 'name')
       post = Post.create(title: 'title', text: 'text', author_id: user.id)
       old_comment = Comment.create(author_id: user.id, post_id:, text: 'text')
-      first_comment = Comment.create(author_id: user.id, post_id:, text: 'text')
-      second_comment = Comment.create(author_id: user.id, post_id:, text: 'text')
-      third_comment = Comment.create(author_id: user.id, post_id:, text: 'text')
-      fourth_comment = Comment.create(author_id: user.id, post_id:, text: 'text')
-      fifth_comment = Comment.create(author_id: user.id, post_id:, text: 'text')
+      comment_one = Comment.create(author_id: user.id, post_id:, text: 'text')
+      comment_two = Comment.create(author_id: user.id, post_id:, text: 'text')
+      comment_three = Comment.create(author_id: user.id, post_id:, text: 'text')
+      comment_four = Comment.create(author_id: user.id, post_id:, text: 'text')
+      comment_five = Comment.create(author_id: user.id, post_id:, text: 'text')
 
-      expect(post.most_recent_comments).to include(first_comment)
-      expect(post.most_recent_comments).to include(second_comment)
-      expect(post.most_recent_comments).to include(third_comment)
-      expect(post.most_recent_comments).to include(fourth_comment)
-      expect(post.most_recent_comments).to include(fifth_comment)
+      expect(post.most_recent_comments).to include(comment_one)
+      expect(post.most_recent_comments).to include(comment_two)
+      expect(post.most_recent_comments).to include(comment_three)
+      expect(post.most_recent_comments).to include(comment_four)
+      expect(post.most_recent_comments).to include(comment_five)
       expect(post.most_recent_comments).to_not include(old_comment)
     end
   end

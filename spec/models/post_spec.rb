@@ -69,7 +69,7 @@ RSpec.describe Post, type: :model do
     end
   end
 
-  describe '#increment_posts_counter' do
+  describe 'increment_posts_counter' do
     let(:user) { User.create(name: 'John Doe', photo: 'https://unsplash.com/photos/F_-0BxGuVvo', bio: 'Teacher from Mexico', posts_counter: 0) }
     let(:post) { Post.new(title: 'Example Title', comments_counter: 0, likes_counter: 0, author: user) }
     it 'increments the posts_counter of the author' do

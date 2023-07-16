@@ -5,8 +5,8 @@ class Post < ApplicationRecord
   validate :likes_counter_greater_than_zero
 
   belongs_to :author, class_name: 'User'
-  has_many :likes, foreign_key: 'post_id'
-  has_many :comments, foreign_key: 'post_id'
+  has_many :likes, foreign_key: 'post_id', dependent: :destroy
+  has_many :comments, foreign_key: 'post_id', dependent: :destroy
 
   def most_recent_comments
     comments.order(created_at: :desc).limit(5)

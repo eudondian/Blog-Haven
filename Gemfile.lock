@@ -108,7 +108,6 @@ GEM
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
-    lorem_ipsum (0.0.2)
     mail (2.8.1)
       mini_mime (>= 0.1.1)
       net-imap
@@ -262,7 +261,6 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
-  lorem_ipsum
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.6)

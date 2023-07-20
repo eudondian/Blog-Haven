@@ -16,7 +16,7 @@ class User < ApplicationRecord
     errors.add(:postsCounter, 'must be greater than or equal 0')
   end
 
-  # def increment_posts_counter
-  #   author.increment!(posts_counter:)
-  # end
+  def increment_posts_counter
+    author.increment!(posts_counter:)
+  end
 end

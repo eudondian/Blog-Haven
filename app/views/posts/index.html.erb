@@ -1,4 +1,15 @@
 <h1>All posts</h1>
+<div class='container'>
+  <div>
+    <div class='avatar'>
+      <%= image_tag(@user.photo) %>
+    </div>
+    <div><h2><%= @user.name %></h2></div>
+    <div><p> Number of Posts: <%= @user.posts_counter %></p> 
+    
+    </div>
+  </div>
+</div>
 <% @posts.each do |post| %>
   <div class="post">
     <h2 class="post-title"><%= link_to post.title, user_post_path(@user, post), class: 'post-title' %></h2>
@@ -10,14 +21,12 @@
         </div>
     </div>
   </div>
-  <ul>
+  <div class='comments'>
       <% post.most_recent_comments.each do |comment| %>
-      <li>
+      <div>
       <%= comment.author.name%>: <%= comment.text%>
-      </li>
+      </div>
       <% end %>
-    </ul>
+  </div>
 <% end %>
     
-   
-  

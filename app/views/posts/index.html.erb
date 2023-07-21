@@ -1,11 +1,23 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
-<!-- app/views/posts/index.html.erb -->
-<h1>All Posts</h1>
-<p>Here is a list of all posts by the user:</p>
-<!-- Implement code to display the list of posts for a given user -->
-
-<!-- app/views/posts/show.html.erb -->
-<h1>Post Details</h1>
-<p>Here are the details for the post:</p>
-<!-- Implement code to display the details of a single post -->
+<h1>All posts</h1>
+<% @posts.each do |post| %>
+  <div class="post">
+    <h2 class="post-title"><%= link_to post.title, user_post_path(@user, post), class: 'post-title' %></h2>
+    <p class="post-text"><%= post.text %></p>
+    <div class="post-info">
+      <div class="post-likes">
+              <strong>Comments:</strong> <span class="rate"><%= post.comments_counter %></span>      
+              <strong>Likes:</strong> <span class="rate"><%= post.likes_counter %></span>
+        </div>
+    </div>
+  </div>
+  <ul>
+      <% post.most_recent_comments.each do |comment| %>
+      <li>
+      <%= comment.author.name%>: <%= comment.text%>
+      </li>
+      <% end %>
+    </ul>
+<% end %>
+    
+   
+  

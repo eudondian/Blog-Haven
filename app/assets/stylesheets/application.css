@@ -13,83 +13,92 @@
  *= require_tree .
  *= require_self
  */
- /* @import 'bootstrap'; */
- * {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
+
+/* @import 'bootstrap'; */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 body {
-   background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
+
 h1 {
-   text-align: center;
-   margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
-.container{
-   width: 100%;
-   margin: 0 auto;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: space-between;
-   list-style: none;
-   gap: 10px;
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  gap: 10px;
 }
+
 .container div {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   list-style: none;
-   padding: 1rem .5rem;
-   width: 100%;
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  padding: 1rem 0.5rem;
+  width: 100%;
 }
+
 h1.title {
-   background-color: #ccc;
-   border: 1px solid #ccc;
-   padding: 1rem;
+  background-color: #ccc;
+  border: 1px solid #ccc;
+  padding: 1rem;
 }
 
 .avatar {
-   width: 500px;
-   height: 200px;
-   border-radius: 50%;
-   
+  width: 500px;
+  height: 200px;
+  border-radius: 50%;
 }
 
 .avatar img {
-   width: 50%;
-   height: auto;
-   border-radius: 50%;
+  width: 50%;
+  height: auto;
+  border-radius: 50%;
 }
+
 .user-info {
-   display: flex;
-   flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
+
 .recent-posts {
-   display: flex;
-   flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
+
 .recent-post {
-   display: flex;
-   flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-.post, 
+
+.post,
 .post-container {
-   width: 90%;
-   display: flex;
-   flex-direction: column;
-   margin: 10px auto;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
 }
+
 .comments {
-   width: 90%;
-   display: flex;
-   flex-direction: column;
-   margin: 10px auto;
-   padding: 10px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  padding: 10px;
 }
-.comments :nth-child(2n){
-   background-color: #ccc;
-   
+
+.comments :nth-child(2n) {
+  background-color: #ccc;
 }

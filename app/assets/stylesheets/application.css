@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+ @import 'bootstrap';
+
+ ul#user-container {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+ }
+
+ 

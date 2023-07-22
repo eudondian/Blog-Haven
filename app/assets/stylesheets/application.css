@@ -63,6 +63,10 @@ h1.title {
 
   /* width: 100%; */
 }
+.container div {
+    /* background-color: #f8949425; */
+     border: 1px solid #ccc;
+   }
 
 .avatar img {
   width: 50%;

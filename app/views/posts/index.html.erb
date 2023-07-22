@@ -10,8 +10,9 @@
   </div>
 
 <% @posts.each do |post| %>
+ <h2 class="post-title"><%= link_to 'Add a post', new_user_post_path(@user), class: 'post-title' %></h2> 
   <div class="post">
-    <h2 class="post-title"><%= link_to post.title, user_post_path(@user, post), class: 'post-title' %></h2>
+    <h2 class="post-title"><%= link_to post.title, posts_path( @user.id), class: 'post-title' %></h2>
     <p class="post-text"><%= post.text %></p>
     <div class="post-info">
       <div class="post-likes">

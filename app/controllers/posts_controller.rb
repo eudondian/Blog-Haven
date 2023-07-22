@@ -6,7 +6,6 @@ class PostsController < ApplicationController
     end
   end
   
-
  def create
   @current_user = current_user
   post = Post.new(params.require(:post).permit(:title, :text).merge(author_id: @current_user.id))
@@ -14,7 +13,7 @@ class PostsController < ApplicationController
     format.html do
       if post.save
         flash[:success] = 'Post created successfully'
-        redirect_to user_post_path
+        redirect_to user_post_path(@current_user, post)
       else
         flash.now[:error] = 'Error: Post could not be saved'
         render :new, locals: { post: }

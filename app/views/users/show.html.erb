@@ -10,8 +10,7 @@
     </div>
     <div class='user-info'>
       <div><h2>Bio</h2></div>
-      <div><p><%= @user.bio %><br/>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat aliquid eius fuga. Nulla reprehenderit, ipsa quam, asperiores itaque totam vel amet iste ducimus pariatur distinctio reiciendis quasi hic, illum sit.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quas magni. Iure deserunt voluptates accusantium quam maxime tempore sint veniam laudantium? Aperiam placeat dolor quasi facilis! Dicta quasi soluta fugiat cupiditate facere consequuntur ipsum! Ea beatae, adipisci delectus sunt rerum veniam velit odio sit deleniti deserunt nobis facere nostrum ex!</p>
-      </div>
+      <div><p><%= @user.bio %>
       </div>
   
 <div class="recent-posts">
@@ -19,7 +18,7 @@
     <% @user.most_recent_posts.each do |post| %>
         <div class='recent-post'>
           <h3><%= link_to post.title, user_post_path(@user, post), class: 'post-title' %> Post</h3>
-          <p><%= post.text %><br/>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, quas magni. Iure deserunt voluptates accusantium quam maxime tempore sint veniam laudantium? Aperiam placeat dolor quasi facilis! Dicta quasi soluta fugiat cupiditate facere consequuntur ipsum! Ea beatae, adipisci delectus sunt rerum veniam velit odio sit deleniti deserunt nobis facere nostrum ex! </p>
+          <p><%= post.text %>
           <div class='like-comments'>
             <p>Comments: <%= post.comments_counter || 0 %></p>
             <p>Likes: <%= post.likes_counter || 0 %></p>

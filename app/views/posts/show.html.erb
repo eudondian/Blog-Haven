@@ -1,11 +1,24 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
-<!-- app/views/posts/index.html.erb -->
-<h1>All Posts</h1>
-<p>Here is a list of all posts by the user:</p>
-<!-- Implement code to display the list of posts for a given user -->
 
-<!-- app/views/posts/show.html.erb -->
-<h1>Post Details</h1>
-<p>Here are the details for the post:</p>
-<!-- Implement code to display the details of a single post -->
+  <div class='container'>
+<div class= "post-container">
+<div class='post-info'>
+  <div class='post-info-header'>
+    <h3><%= @post.title %></h3>
+    <p class='post-info-counters'>Comments: <%= @post.comments_counter %> | Likes: <%= @post.likes_counter %></p>
+  </div>
+  
+  <h3>Comments</h3>
+  <% if @post.comments.empty? %>
+    <p class="comment_empty-message">No comments yet!</p>
+  <% else %>
+    <ul>
+      <% @post.comments.each do |comment| %>
+        <li>
+          <p><strong><%= comment.author.name %>:</strong> <%= comment.text %></p>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
+</div>
+</div>

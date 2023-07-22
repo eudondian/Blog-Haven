@@ -1,0 +1,12 @@
+<div class='container'>
+  <div class='avatar'>
+  <% if user.photo.present? %>
+    <%= image_tag(user.photo, alt: user.name) %>
+    <% else %>
+    
+  </div>
+  <div class='user-info'>
+    <h2><%= user.name %></h2>
+    <p><%= Posts: <%= user.posts_counter%></p>
+    </div>
+</div>

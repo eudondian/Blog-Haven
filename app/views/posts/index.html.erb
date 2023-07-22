@@ -6,10 +6,9 @@
     </div>
     <div><h2><%= @user.name %></h2></div>
     <div><p> Number of Posts: <%= @user.posts_counter %></p> 
-    
     </div>
   </div>
-</div>
+
 <% @posts.each do |post| %>
   <div class="post">
     <h2 class="post-title"><%= link_to post.title, user_post_path(@user, post), class: 'post-title' %></h2>
@@ -19,14 +18,14 @@
               <strong>Comments:</strong> <span class="rate"><%= post.comments_counter %></span>      
               <strong>Likes:</strong> <span class="rate"><%= post.likes_counter %></span>
         </div>
-    </div>
-  </div>
-  <div class='comments'>
+        <div class='comments'>
       <% post.most_recent_comments.each do |comment| %>
       <div>
       <%= comment.author.name%>: <%= comment.text%>
       </div>
       <% end %>
   </div>
+</div>
+ 
 <% end %>
     

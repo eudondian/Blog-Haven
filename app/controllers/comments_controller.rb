@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+
     def index
     @comments = Comment.all
   end
@@ -19,8 +20,6 @@ class CommentsController < ApplicationController
     else
       flash.now[:error] = 'Failed to create comment.'
       render :new
-    end
-  end
 
   private
 

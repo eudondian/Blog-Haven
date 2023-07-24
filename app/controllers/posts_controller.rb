@@ -1,25 +1,25 @@
 class PostsController < ApplicationController
   def new
     @post = Post.new
-    respond_to do |format|
-      format.html { render :new, locals: { post: @post } }
-    end
+    # respond_to do |format|
+    #   format.html { render :new, locals: { post: @post } }
+    # end
   end
 
   def create
-    @current_user = current_user
-    @post = Post.new(post_params.merge(author_id: @current_user.id))
-    respond_to do |format|
-      format.html do
+    @post = Post.new(post_params.merge(author_id: current_user.id))
+
+    # respond_to do |format|
+      # format.html do
         if @post.save
           flash[:success] = 'Post created successfully'
-          format.html { redirect_to user_post_path(@current_user, @post) }
+          redirect_to user_post_path(current_user, @post) 
         else
           flash.now[:error] = 'Error: Post could not be saved'
-          format.html { render :new }
+          render :new 
         end
-      end
-    end
+      # end
+    # end
   end
 
   def index
@@ -41,6 +41,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :text, :user_id)
+    params.require(:post).permit(:title, :text)
   end
 end

@@ -1,25 +1,29 @@
 
-  <div class='container'>
-<div class= "post-container">
-<div class='post-info'>
-  <div class='post-info-header'>
-    <h3><%= @post.title %></h3>
-    <p class='post-info-counters'>Comments: <%= @post.comments_counter %> | Likes: <%= @post.likes_counter %></p>
-  </div>
-  
-  <h3>Comments</h3>
-  <% if @post.comments.empty? %>
-    <p class="comment_empty-message">No comments yet!</p>
-  <% else %>
-    <ul>
-      <% @post.comments.each do |comment| %>
-        <li>
-          <p><strong><%= comment.author.name %>:</strong> <%= comment.text %></p>
-        </li>
+<div class='container'>
+  <div class= "post-container">
+    <div class='post-info'>
+      <div class='post-info-header'>
+        <h3><%= @post.title %></h3>
+        <p class='post-info-counters'>Comments: <%= @post.comments_counter %> | Likes: <%= @post.likes_counter %></p>
+      </div>
+
+      <div class='post-info-body'>
+        <p><%= @post.text %></p>
+      </div>
+
+      <h3>Comments</h3>
+      <% if @post.comments.empty? %>
+        <p class="comment_empty-message">No comments yet!</p>
+      <% else %>
+        <ul>
+          <% @post.comments.each do |comment| %>
+            <li>
+              <p><strong><%= comment.author.name %>:</strong> <%= comment.text %></p>
+            </li>
+          <% end %>
+        </ul>
       <% end %>
-    </ul>
-  <% end %>
-</div>
-</div>
-<h2><%= link_to 'Add a comment', new_user_post_comment_path(post_id:  @post.id ), class: 'post-title' %></h2> 
+    </div>
+  </div>
+  <h2><%= link_to 'Add a comment', new_user_post_comment_path(post_id:  @post.id ), class: 'post-title' %></h2> 
 </div>

@@ -13,7 +13,7 @@
 
 <% @posts.each do |post| %>
   <div class="post">
-    <h2 class="post-title"><%= link_to post.title, user_post_path(id:@user.id), class: 'post-title' %></h2>
+    <h2 class="post-title"><%= link_to post.title, user_post_path(@user, post) %></h2>
     <p class="post-text"><%= post.text %></p>
     <div class="post-info">
       <div class="post-likes">

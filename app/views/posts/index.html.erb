@@ -9,24 +9,24 @@
     </div>
   </div>
 
+ <h2 class="new-post"><%= link_to 'Add new post', new_user_post_path(@user), class: 'new-post' %></h2> 
+
 <% @posts.each do |post| %>
- <h2 class="post-title"><%= link_to 'Add a post', new_user_post_path(@user), class: 'post-title' %></h2> 
   <div class="post">
     <h2 class="post-title"><%= link_to post.title, user_post_path(id:@user.id), class: 'post-title' %></h2>
     <p class="post-text"><%= post.text %></p>
     <div class="post-info">
       <div class="post-likes">
-              <strong>Comments:</strong> <span class="rate"><%= post.comments_counter %></span>      
-              <strong>Likes:</strong> <span class="rate"><%= post.likes_counter %></span>
-        </div>
-        <div class='comments'>
-      <% post.most_recent_comments.each do |comment| %>
-      <div>
-      <%= comment.author.name%>: <%= comment.text%>
+        <strong>Comments:</strong> <span class="rate"><%= post.comments_counter %></span>      
+        <strong>Likes:</strong> <span class="rate"><%= post.likes_counter %></span>
       </div>
-      <% end %>
+
+      <div class='comments'>
+        <% post.most_recent_comments.each do |comment| %>
+          <div><%= comment.author.name%>: <%= comment.text%></div>
+        <% end %>
+      </div>
+    </div>
   </div>
-</div>
- 
 <% end %>
     

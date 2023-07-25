@@ -15,7 +15,7 @@ RSpec.describe 'Users', type: :system, js: true do
       visit user_path(@user)
     end
 
-   # I can see the user's profile picture.
+    # I can see the user's profile picture.
     it "displays the user's information" do
       expect(page).to have_css("img[src*='https://picsum.photos/200/300']")
       expect(page).to have_content(@user.name)
@@ -29,7 +29,6 @@ RSpec.describe 'Users', type: :system, js: true do
 
       expect(page).to have_link('See all posts', href: user_posts_path(@user))
     end
-
 
     # When I click a user's post, it redirects me to that post's show page.
     it "redirects to the post show page when clicking a user's post" do

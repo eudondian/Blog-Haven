@@ -6,14 +6,11 @@
     <% @users.each do |user| %>
       <div>
         <div class='avatar'>
-            <%= image_tag(user.photo) %>
-          </div>
-          <div><h2><%= user.name %></h2></div>
-          <div> <p><%= link_to "Number of posts: " , user_path(user) %><%= user.posts_counter %></p> </div>
-         
-         
-        
+          <%= image_tag(user.photo) %>
+        </div>
+        <div><h2><%= link_to "#{user.name} ##{user.id}" , user_path(user) %></h2></div>
+        <div> <p>Number of posts: <%= user.posts_counter %></p> </div>
       </div>
     <% end %>
-  </ul>
+  </div>
 <% end %>

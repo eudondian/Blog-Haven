@@ -1,9 +1,9 @@
- require 'rails_helper'
+require 'rails_helper'
 
 RSpec.describe 'User posts', type: :system, js: true do
   before(:all) do
-    @messi = User.create(name: 'Messi', photo: 'https://picsum.photos/200/300',  bio: 'I love Barcelona and Argentina.')
-    @cr7 = User.create(name: 'Cristiano', photo: 'https://picsum.photos/200/300',  bio: 'I am ubleivable inside the pitch.')
+    @messi = User.create(name: 'Messi', photo: 'https://picsum.photos/200/300', bio: 'I love Barcelona and Argentina.')
+    @cr7 = User.create(name: 'Cristiano', photo: 'https://picsum.photos/200/300', bio: 'I am ubleivable inside the pitch.')
 
     @messi_post1 = Post.create(title: 'The good old days', text: 'I miss the old days. Those days were the best.',
                                author: @messi)

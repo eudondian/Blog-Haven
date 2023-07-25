@@ -8,10 +8,10 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:success] = 'Post created successfully'
-      redirect_to user_post_path(current_user, @post) 
+      redirect_to user_post_path(current_user, @post)
     else
       flash.now[:error] = 'Error: Post could not be saved'
-      render :new 
+      render :new
     end
   end
 

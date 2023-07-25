@@ -17,7 +17,7 @@
   <% if @user.most_recent_posts.any? %>
     <% @user.most_recent_posts.each do |post| %>
         <div class='recent-post'>
-          <h3><%= link_to post.title, user_post_path(@user, post), class: 'post-title' %> Post</h3>
+          <h3><%= link_to post.title, user_post_path(@user, post), class: 'post-title' %></h3>
           <p><%= post.text %>
           <div class='like-comments'>
             <p>Comments: <%= post.comments_counter || 0 %></p>
@@ -32,4 +32,4 @@
 <% else %>
   <p class='user_empty-message'>User not found.</p>
 <% end %>
-<button type="button" class="custom-button"><%= link_to 'See all posts', user_posts_path(@user) %></button>
+<%= link_to 'See all posts', user_posts_path(@user) %>

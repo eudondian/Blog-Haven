@@ -1,30 +1,23 @@
 class PostsController < ApplicationController
   def new
     @post = Post.new
-    # respond_to do |format|
-    #   format.html { render :new, locals: { post: @post } }
-    # end
   end
 
   def create
     @post = Post.new(post_params.merge(author_id: current_user.id))
 
-    # respond_to do |format|
-      # format.html do
-        if @post.save
-          flash[:success] = 'Post created successfully'
-          redirect_to user_post_path(current_user, @post) 
-        else
-          flash.now[:error] = 'Error: Post could not be saved'
-          render :new 
-        end
-      # end
-    # end
+    if @post.save
+      flash[:success] = 'Post created successfully'
+      redirect_to user_post_path(current_user, @post) 
+    else
+      flash.now[:error] = 'Error: Post could not be saved'
+      render :new 
+    end
   end
 
   def index
     @user = User.find_by(id: params[:user_id])
-    @posts = @user.posts
+    @posts = @user.posts.includes(:comments)
   end
 
   def likes

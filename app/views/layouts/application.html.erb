@@ -13,8 +13,14 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
+    <div class="popup">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
     
-    <%= yield %>
+    <main class="main">
+      <%= yield %>
+    </main>
  
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

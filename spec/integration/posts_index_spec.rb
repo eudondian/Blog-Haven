@@ -45,6 +45,11 @@ RSpec.describe 'User posts', type: :system, js: true do
       end
     end
 
+    # I can see a section for pagination link on the view.
+    it 'should render the pagination link' do
+      expect(page).to have_css('.pagination a')
+    end
+
     it 'should redirect to post show page when clicking on post title' do
       click_link @messi_post1.title
       expect(page).to have_current_path(user_post_path(@messi, @messi_post1))

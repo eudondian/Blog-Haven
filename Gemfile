@@ -83,3 +83,6 @@ end
 gem 'view_component', '~> 3.4'
 
 gem 'bootstrap-sass'
+
+# Authenticate users with Devise
+gem 'devise'

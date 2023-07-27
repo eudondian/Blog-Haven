@@ -1,30 +1,23 @@
 class PostsController < ApplicationController
   def new
     @post = Post.new
-    respond_to do |format|
-      format.html { render :new, locals: { post: @post } }
-    end
   end
 
   def create
-    @current_user = current_user
-    @post = Post.new(post_params.merge(author_id: @current_user.id))
-    respond_to do |format|
-      format.html do
-        if @post.save
-          flash[:success] = 'Post created successfully'
-          format.html { redirect_to user_post_path(@current_user, @post) }
-        else
-          flash.now[:error] = 'Error: Post could not be saved'
-          format.html { render :new }
-        end
-      end
+    @post = Post.new(post_params.merge(author_id: current_user.id))
+
+    if @post.save
+      flash[:success] = 'Post created successfully'
+      redirect_to user_post_path(current_user, @post)
+    else
+      flash.now[:error] = 'Error: Post could not be saved'
+      render :new
     end
   end
 
   def index
     @user = User.find_by(id: params[:user_id])
-    @posts = @user.posts
+    @posts = @user.posts.includes(:comments)
   end
 
   def likes
@@ -41,6 +34,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :text, :user_id)
+    params.require(:post).permit(:title, :text)
   end
 end

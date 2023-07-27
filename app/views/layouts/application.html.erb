@@ -13,8 +13,29 @@
     <%= javascript_importmap_tags %>
   </head>
   <body>
+    <header class="header">
+      <nav class="nav">
+        <%= link_to "Home", root_path, class: "nav__link" %>
+
+        <ul class="nav__list">
+          <% if user_signed_in? %>
+            <li class="nav__item"><%= link_to "Sign out", destroy_user_session_path, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?", turbo_method: :delete }, method: :delete, class: "nav__link" %></li>
+          <% else %>
+            <li class="nav__item"><%= link_to "Sign up", new_user_registration_path, class: "nav__link" %></li>
+            <li class="nav__item"><%= link_to "Sign in", new_user_session_path, class: "nav__link" %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="popup">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+    </div>
     
-    <%= yield %>
+    <main class="main">
+      <%= yield %>
+    </main>
  
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

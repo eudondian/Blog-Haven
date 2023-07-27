@@ -9,7 +9,9 @@
 user = User.create!(
     name: 'Esther Haven',
     bio: 'Story of Esther\'s life ...',
-    photo: 'https://i.pravatar.cc/300'
+    photo: 'https://i.pravatar.cc/300',
+    email: 'miles@king.him',
+    password: 'password',
   )
   second_user = User.create(name: 'Lilly', photo: 'https://i.pravatar.cc/300', bio: 'Teacher from Poland.')
   first_user = User.create(name: 'Tom', photo: 'https://i.pravatar.cc/300', bio: 'Teacher from Mexico.')

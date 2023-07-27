@@ -114,3 +114,17 @@ h1.title {
   gap: 5px 20px !important;
   justify-content: flex-end !important;
 }
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}
+
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+}
